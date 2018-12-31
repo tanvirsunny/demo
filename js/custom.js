@@ -1,49 +1,16 @@
-$(document).ready(function(){
+jQuery(function ($) {
 
-	//mobile-menu-button
-    $('.navbar-toggler').click(function() { 
-          $(this).toggleClass('active');
-    });
-
-   //navbar-animation
-    $(window).scroll(function(){
-      if($(document).scrollTop()>50){
-
-          $('.navbar').addClass('navnew');
-      }
-      else{
-          $('.navbar').removeClass('navnew');
-      }
-        
-    });
-
-    //testimonial-slider
-
-    $('.autoplay').slick({
+    /*-- Strict mode enabled --*/
+    "use strict";
+    //sliders
+    $('.slider').slick({
       slidesToShow: 1,
       slidesToScroll: 1,
-      autoplay: false,
-      dots:true,
-      speed:1000,
-      fade: false,
-      autoplaySpeed: 2000
-    })
+      autoplay: true,
+      fade:true,
+      dots: false,
+      autoplaySpeed: 3000,
+      arrows:true
+    }).slickAnimation();
 
-})
-
-	var controller=new ScrollMagic.Controller();
-
-
-	var tween2 = new TimelineMax ()
-		tween2
-		.to('#subsbg',0.1,{y:'250'});
-
-
-	var scene2 = new ScrollMagic.Scene({
-		triggerElement: "#subsbg",
-		duration:'2000', 
-		triggerHook:'onEnter',
-		offset: 40
-	})
-		.setTween(tween2)
-		.addTo(controller);
+}(jQuery));
